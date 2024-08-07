@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -9,8 +9,13 @@ function App() {
   const [boardState, setBoardState] = useState(TIC_TAC_TOE)
 
   const [isXNext,  setIsXNext]=useState(true)
+
+  const displayWinner = useMemo(()=>{
+    return 'X'
+  },[])
   return <div>
     <h1>Tic Tac Toe</h1>
+    <h3>Winner is {displayWinner}</h3>
     <div style={{
       display:'flex',
       flexFlow:'row wrap',
