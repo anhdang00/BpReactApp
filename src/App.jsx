@@ -11,15 +11,19 @@ function App() {
   const [isXNext,  setIsXNext]=useState(true)
 
   const displayWinner = useMemo(()=>{
-    const xRows=[], oRows[];
+    const xRows=[], oRows=[];
 
     boardState.map((row,i)=>{
-      row.map((c,j)=>{
-
+      row.map((cell,j)=>{
+        if(cell==='X'){
+          xRows.push(i*3+j)
+        }else if (cell === 'O'){
+          oRows.push(i*3+j)
+        }
       })
     })
     return 'X'
-  },[])
+  },[boardState,isXNext])
   return <div>
     <h1>Tic Tac Toe</h1>
     <h3>Winner is {displayWinner}</h3>
