@@ -22,6 +22,7 @@ function App() {
         return row.map((cell,j) =>{
           return <div className='cell' onClick={() =>{
             setBoardState(bs=>{
+              const symbolToPut= isXNext?'X':'O';
               return [
                 ...bs.slice(0,i),
                 [...bs[i].slice(0,j),'X',...bs[i].slice(j+1)],
