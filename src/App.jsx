@@ -10,7 +10,13 @@ function App() {
 
   return <div>
     <h1>Tic Tac Toe</h1>
-    {TIC_TAC_TOE.map(
+    <div style={{
+      display:'flex',
+      flexFlow:'row wrap',
+      width:'150px',
+      height:'150px'
+    }}>
+      {TIC_TAC_TOE.map(
       (row,i) => {
         return row.map((cell,j) =>{
           return <div className='cell' onClick={() =>{
@@ -20,14 +26,18 @@ function App() {
                 [...bs[i].slice(0,j),'X',...bs[i].slice(j+1)],
                 ...bs.slice(i+1)]
             })
-          }}></div>
+          }}>
+            {boardState[i][j]}
+          </div>
         })
         
       }
 
     )}
-    
+    </div>
   </div>
+
+    
 }
 
 export default App
