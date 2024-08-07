@@ -51,5 +51,5 @@
   flex: 1 1 33.33%;
   border: 1px solid;
   margin: -1px;
-  line-height: var(--cellSize);
+  line-height: calc(var(--cellSize)*3);
 }

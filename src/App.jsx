@@ -28,8 +28,8 @@ function App() {
   const styleObj={
     display:'flex',
     flexFlow:'row wrap',
-    width:'150px',
-    height:'150px'
+    width:'calc(var(--cellSize)*3)',
+    height:'calc(var(--cellSize)*3)'
   }
 
   return <div>
