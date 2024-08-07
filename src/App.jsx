@@ -8,6 +8,7 @@ function App() {
 
   const [boardState, setBoardState] = useState(TIC_TAC_TOE)
 
+  const [isXNext,  setIsXNext]=useState(true)
   return <div>
     <h1>Tic Tac Toe</h1>
     <div style={{
