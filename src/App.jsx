@@ -24,15 +24,18 @@ function App() {
     })
     return 'X'
   },[boardState,isXNext])
+
+  const styleObj={
+    display:'flex',
+    flexFlow:'row wrap',
+    width:'150px',
+    height:'150px'
+  }
+
   return <div>
     <h1>Tic Tac Toe</h1>
     <h3>Winner is {displayWinner}</h3>
-    <div style={{
-      display:'flex',
-      flexFlow:'row wrap',
-      width:'150px',
-      height:'150px'
-    }}>
+    <div style={styleObj}>
       {TIC_TAC_TOE.map(
       (row,i) => {
         return row.map((cell,j) =>{
