@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react'
 import './App.css'
-import { TIC_TAC_TOE } from './events/TicTacToe/constants'
-import Board from './events/TicTacToe/Board'
-import { calculateWinner } from './events/TicTacToe/utils'
+import { TIC_TAC_TOE } from './constants'
+import Board from './Board'
+import { calculateWinner } from './utils'
 
 function App() {
 
