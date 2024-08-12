@@ -1,4 +1,4 @@
-export default function Board(){
+export default function Board(setBoardState, isXNext, setIsXNext, boardState,...props){
     const styleObj={
         display:'flex',
         flexFlow:'row wrap',
