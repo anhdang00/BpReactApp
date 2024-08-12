@@ -1,6 +1,14 @@
-export default function Cell(){
-    return <div 
-              key={`${i} - ${j}`}
+
+
+
+export default function Cell(onClick, symbol,...props){
+    return <div className="cell" onClick={onClick}>
+              {symbol}
+            </div>
+}
+
+/**
+ * key={`${i} - ${j}`}
               className='cell' 
               onClick={() =>{
                 setBoardState(bs=>{
@@ -13,5 +21,4 @@ export default function Cell(){
                 })
               }}>
                 {boardState[i][j]}
-            </div>
-}
+ */

@@ -39,9 +39,8 @@ function App() {
       {TIC_TAC_TOE.map((row,i) => {
         return row.map((cell,j) =>{
           return (
-            <div 
+            <Cell 
               key={`${i} - ${j}`}
-              className='cell' 
               onClick={() =>{
                 setBoardState(bs=>{
                   const symbolToPut= isXNext?'X':'O';
@@ -50,16 +49,13 @@ function App() {
                     ...bs.slice(0,i),
                     [...bs[i].slice(0,j),symbolToPut,...bs[i].slice(j+1)],
                     ...bs.slice(i+1)]
-                })
-              }}>
-                {boardState[i][j]}
-            </div>
-          )
-        })
-        
-      }
-
-    )}
+                  })
+                }}
+                    symbol={boardState[i][j]}
+            /> 
+          )      
+        })       
+      })}
     </div>
   </div>
 
