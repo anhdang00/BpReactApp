@@ -52,4 +52,5 @@
   border: 1px solid;
   margin: -1px;
   line-height: var(--cellSize);
+  font-size: 22px;
 }
