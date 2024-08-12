@@ -2,9 +2,10 @@ import { useMemo, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Cell from './events/TicTacToe/Cell'
+import { TIC_TAC_TOE } from './events/TicTacToe/constants'
 
 function App() {
-  const TIC_TAC_TOE = new Array(3).fill(new Array(3).fill(null))
 
   const [boardState, setBoardState] = useState(TIC_TAC_TOE)
 
