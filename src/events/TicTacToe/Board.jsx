@@ -1,3 +1,6 @@
+import Cell from "./Cell"
+import { TIC_TAC_TOE } from "./constants"
+
 export default function Board(setBoardState, isXNext, setIsXNext, boardState,...props){
     const styleObj={
         display:'flex',

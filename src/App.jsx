@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import './App.css'
 import { TIC_TAC_TOE } from './events/TicTacToe/constants'
 import Board from './events/TicTacToe/Board'
+import { calculateWinner } from './events/TicTacToe/utils'
 
 function App() {
 
@@ -12,16 +13,24 @@ function App() {
   const displayWinner = useMemo(()=>{
     const xRows=[], oRows=[];
 
-    boardState.map((row,i)=>{
-      row.map((cell,j)=>{
-        if(cell==='X'){
-          xRows.push(i*3+j)
-        }else if (cell === 'O'){
-          oRows.push(i*3+j)
-        }
+      boardState.map((row,i)=>{
+        row.map((cell,j)=>{
+          if(cell==='X'){
+            xRows.push(i*3+j)
+          }else if (cell === 'O'){
+            oRows.push(i*3+j)
+          }
+        })
       })
+    const dataset = new Array(9).fill(null).map((_, idx) =>{
+      if (xRows.includes(idx)){
+        return 'X'
+      }else if (oRows.includes(idx)){
+        return 'O'
+      }
     })
-    return 'X'
+    
+    return calculateWinner(dataset)
   },[boardState,isXNext])
 
   return <div>
