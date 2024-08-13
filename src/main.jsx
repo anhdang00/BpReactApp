@@ -4,15 +4,9 @@ import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter,RouterProvider, useNavigate } from 'react-router-dom'
+import Lobby from './Lobby'
 
-const Lobby = ()=>{
-  const navigate = useNavigate()
-  return <div>Lobby
-    <button onClick={()=>{
-      navigate('/newSession')
-    }}> take me to the game</button>
-  </div>
-}
+
 
 const router = createBrowserRouter([
   {path:'/:sessionID', element:<Game></Game>},
@@ -27,9 +21,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
 /**
- * createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Game />
-  </StrictMode>,
-)
+
  */
