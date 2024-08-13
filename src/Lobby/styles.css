@@ -1,0 +1,10 @@
+.lobby-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.lobby-container > nav{
+    height: 50px;
+    background-color: palevioletred;
+    color: white;
+}

@@ -3,7 +3,7 @@ import './styles.css'
 
 export default function Lobby(){
     const navigate = useNavigate()
-    return <div>
+    return <div className="lobby-container">
         <nav>Welcome!</nav>
         <div>
             <div></div>
