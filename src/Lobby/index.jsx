@@ -6,7 +6,19 @@ export default function Lobby(){
     return <div className="lobby-container">
         <nav>Welcome!</nav>
         <div className="lobby-main">
-            <div></div>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                }}>
+                <h1>User Info</h1>
+                <select>
+                    <option>Tic-Tac-Toe</option>
+                    <option>Event 2</option>
+                    <option>Event 3</option>
+                </select>
+            </div>
             <div></div>
         </div>
     </div>
