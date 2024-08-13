@@ -7,7 +7,8 @@ export default function Board({setBoardState, isXNext, setIsXNext, boardState,..
         display:'flex',
         flexFlow:'row wrap',
         width:'calc(var(--cellSize)*3)',
-        height:'calc(var(--cellSize)*3)'
+        height:'calc(var(--cellSize)*3)',
+        margin: '0 auto',
       }
 
     return (
