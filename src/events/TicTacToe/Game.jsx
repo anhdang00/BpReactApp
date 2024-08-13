@@ -1,15 +1,13 @@
 import { useMemo, useState } from 'react'
-import './App.css'
+import './styles.css'
 import { TIC_TAC_TOE } from './constants'
+import calculateWinner from './utils'
 import Board from './Board'
-import { calculateWinner } from './utils'
 
-function App() {
-
+function Game() {
+  
   const [boardState, setBoardState] = useState(TIC_TAC_TOE)
-
   const [isXNext,  setIsXNext]=useState(true)
-
   const displayWinner = useMemo(()=>{
     const xRows=[], oRows=[];
 
@@ -32,17 +30,15 @@ function App() {
     
     return calculateWinner(dataset)
   },[boardState,isXNext])
-
+  
+  
   return <div>
     <h1>Tic Tac Toe</h1>
     <h3>Winner is {displayWinner}</h3>
     <Board setBoardState={setBoardState} isXNext={isXNext} setIsXNext={setIsXNext} boardState={boardState}/>
   </div>
-
     
 }
 
+export default Game
 
-
-
-export default App
