@@ -1,10 +1,12 @@
+*{
+    --cellSize: 100px;
+}
 .lobby-container{
     display: flex;
     flex-direction: column;
     height:100%;
     gap: 12px;
 }
-
 .lobby-container > nav{
     height: 50px;
     background-color: rgb(248, 68, 110);
@@ -13,24 +15,47 @@
     line-height: 30px;
     text-align: center;
 }
-
 .lobby-main{
     flex: 1 1 auto;
     display: flex;
     gap: 12px;
     padding: 4px;
 }
-
 .lobby-main > div{
     border: 1px dashed rgb(248, 68, 110);
     margin: -1px;
 }
 
+/*User Panel*/
 .lobby-main >div:nth-child(1){
     flex:  1 1 30%;
     text-align: left;
 }
 
+/*Preview display*/
 .lobby-main >div:nth-child(2){
     flex:  1 1 70%;
+    
+}
+.preview-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    transition: .5s ease;
+}
+.preview{
+    width: var(--cellSize);
+    height: var(--cellSize);
+    border: 1px solid;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25%;
+}
+.preview:hover{
+    transform: scale(1.05);
+    border: 2px solid  rgb(248, 68, 110);
 }
