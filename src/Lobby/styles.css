@@ -9,9 +9,9 @@
     height: 50px;
     background-color: rgb(248, 68, 110);
     color: white;
-    text-align: center;
     font-size: 30px;
     line-height: 30px;
+    text-align: center;
 }
 
 .lobby-main{
@@ -28,6 +28,7 @@
 
 .lobby-main >div:nth-child(1){
     flex:  1 1 30%;
+    text-align: left;
 }
 
 .lobby-main >div:nth-child(2){

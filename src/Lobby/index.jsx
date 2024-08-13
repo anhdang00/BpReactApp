@@ -6,8 +6,9 @@ export default function Lobby(){
     return <div className="lobby-container">
         <nav>Welcome!</nav>
         <div className="lobby-main">
-            <div>
+            <div style={{padding: '4px'}}>
                 <h1>User Info</h1>
+                <h2>Anh Dang</h2>
                 <div style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -21,7 +22,15 @@ export default function Lobby(){
                     </select>
                     <button>Create</button>
                 </div>
-                
+                <div>
+                    <h3>Friend List</h3>
+                    <div style={{
+                        height: '200px',
+                        border: '1px solid',
+                    }}>
+
+                    </div>
+                </div>
             </div>
             <div></div>
         </div>
