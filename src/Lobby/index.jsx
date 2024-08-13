@@ -5,7 +5,7 @@ export default function Lobby(){
     const navigate = useNavigate()
     return <div className="lobby-container">
         <nav>Welcome!</nav>
-        <div>
+        <div className="lobby-main">
             <div></div>
             <div></div>
         </div>
