@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import './styles.css'
 
 export default function Lobby(){
     const navigate = useNavigate()
