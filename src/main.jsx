@@ -10,7 +10,7 @@ import Lobby from './Lobby'
 
 const router = createBrowserRouter([
   {path:'/:sessionID', element:<Game></Game>},
-  {path:'/lobby', element: <Lobby/>},
+  {path:'/', element: <Lobby/>},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
