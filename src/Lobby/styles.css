@@ -1,6 +1,4 @@
-*{
-    --cellSize: 100px;
-}
+
 .lobby-container{
     display: flex;
     flex-direction: column;
@@ -42,18 +40,18 @@
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     align-items: center;
-    transition: .5s ease;
+    
 }
 .preview{
     width: var(--cellSize);
     height: var(--cellSize);
     border: 1px solid;
     margin: auto;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 25%;
+    transition: .5s ease;
+    border-radius: 5%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    
 }
 .preview:hover{
     transform: scale(1.05);

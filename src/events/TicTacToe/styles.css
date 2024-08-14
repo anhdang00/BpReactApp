@@ -1,5 +1,5 @@
 *{
-  --cellSize: 50px;
+  --cellSize: 200px;
 }
 
 #root {
@@ -51,5 +51,5 @@
   border: 1px solid;
   margin: -1px;
   line-height: var(--cellSize);
-  font-size: 22px;
+  font-size: 100px;
 }
