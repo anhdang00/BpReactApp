@@ -1,14 +1,4 @@
-// App.js
-import React from 'react';
-import { AuthProvider } from './useAuth';
-import Lobby from '../Lobby';
+import { createContext } from 'react'
 
-function App() {
-  return (
-    <AuthProvider>
-      <Lobby />
-    </AuthProvider>
-  );
-}
-
-export default App;
+const AuthContext = createContext(null)
+export default AuthContext

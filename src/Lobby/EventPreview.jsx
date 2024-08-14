@@ -6,18 +6,21 @@ function RectanglePreview({event}){
     const onJoinEvent = () => {
         navigate(`/${event.id}`)
     }
-    return <div className="preview" onClick={onJoinEvent}>
-        <div style={{
-            background:'green',
-            opacity: .9,
-            color: 'white',
-            borderRadius:'4px',
-            }}>{event.type}</div>
-        {/*<div>id: {event.id} </div>*/}
-        {event.players.map(player =>
-            <div>{player}</div>
-        )}
-    </div>
+    return (
+        <div className="preview" onClick={onJoinEvent}>
+            <div style={{
+                background:'green',
+                opacity: .9,
+                color: 'white',
+                borderRadius:'4px',
+                }}>
+                {event.type}
+            </div>
+            {event.players.map(player =>
+                <div>{player}</div>
+            )}
+        </div>
+    )
 }
 
 export default function EventPreview({events}){

@@ -1,12 +1,7 @@
 *{
-  --cellSize: 200px;
+  --cellSize:200px;
 }
 
-#root {
-  text-align: center;
-  height: 100%;
-  width: 100%;
-}
 
 .logo {
   height: 6em;
@@ -45,11 +40,11 @@
 }
 
 .cell{
-  width: var(--cellSize);
-  height: var(--cellSize);
-  flex: 1 1 33.33%;
-  border: 1px solid;
-  margin: -1px;
-  line-height: var(--cellSize);
-  font-size: 100px;
+  width:var(--cellSize);
+  height:var(--cellSize);
+  flex:1 1 33.33%;
+  border:1px solid;
+  margin:-1px;
+  line-height:var(--cellSize) ;
+  font-size: var(--cellSize);
 }

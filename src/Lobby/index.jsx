@@ -3,7 +3,7 @@ import './styles.css';
 import UserPanel from "./UserPanel";
 import EventPreview from "./EventPreview";
 import { useState } from 'react';
-import { useAuth } from '../Auth/useAuth';
+import useAuth from '../Auth/useAuth';
 
 const EVENT_INIT_OBJECT={}
 
@@ -21,14 +21,13 @@ export default function Lobby(){
     }
 
     return <div className="lobby-container">
-        <nav>Welcome!</nav>
         <div className="lobby-main">
             <UserPanel createEvent={createEvent} setEventType={setEventType }/>
             <EventPreview events={events}/>
         </div>
     </div>
       
-}
+} 
 
 
 /**

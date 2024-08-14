@@ -1,4 +1,4 @@
-import { useAuth } from "../Auth/useAuth"
+import useAuth from "../Auth/useAuth"
 
 export default function UserPanel({createEvent, setEventType}){
     const username = useAuth()

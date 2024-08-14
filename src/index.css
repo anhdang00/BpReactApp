@@ -11,7 +11,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 a {
@@ -31,7 +30,10 @@ body {
   min-height: 100vh;
   height: 100vh;
 }
-
+#root{
+  height: 100%;
+  width: 100%;
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -67,4 +69,13 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.root-container > nav{
+  height: 50px;
+  background-color: rgb(248, 68, 110);
+  color: white;
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
 }
