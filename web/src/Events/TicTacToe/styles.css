@@ -47,4 +47,5 @@
   margin:-1px;
   line-height:var(--cellSize) ;
   font-size: var(--cellSize);
+  text-align: center;
 }
