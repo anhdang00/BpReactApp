@@ -32,7 +32,7 @@ function Game() {
   },[boardState,isXNext])
   
   
-  return <div>
+  return <div className='game-container'>
     <h1>Tic Tac Toe</h1>
     <h3>Winner is {displayWinner}</h3>
     <Board setBoardState={setBoardState} isXNext={isXNext} setIsXNext={setIsXNext} boardState={boardState}/>

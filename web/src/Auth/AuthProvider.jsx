@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 import AuthContext from './context'
+import { socket } from '../main'
+import { EVENT_USER_JOIN } from '../constants/socket'
 
 const AuthProvider = ({ children }) => {
   const [username, setUsername] = useState(null)
   useEffect(() => {
     if (username) {
       localStorage.setItem('lobby_app_username', username)
+      socket.emit(EVENT_USER_JOIN, username)
     }
   }, [username])
   useEffect(() => {

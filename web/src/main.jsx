@@ -6,6 +6,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Lobby from './Lobby/index.jsx'
 import App from './App.jsx'
 import AuthProvider from './Auth/AuthProvider.jsx'
+import {io} from 'socket.io-client'
+
+const URL = 'http://localhost:3000'
+export const socket = io(URL)
 
 const router = createBrowserRouter([
   {
