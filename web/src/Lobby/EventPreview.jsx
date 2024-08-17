@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom"
-
+import { socket } from "../main"
+import useAuth from "../Auth/useAuth"
+import { EVENT_PLAYER_JOIN } from "../constants/socket"
 
 function RectanglePreview({event}){
+    const userName = useAuth()
     const navigate = useNavigate()
     const onJoinEvent = () => {
+        socket.emit(EVENT_PLAYER_JOIN, { userName, eventId: event.id })
         navigate(`/${event.id}`)
     }
     return (
@@ -17,7 +21,7 @@ function RectanglePreview({event}){
                 {event.type}
             </div>
             {event.players.map(player =>
-                <div>{player}</div>
+                <div key={player}> {player}</div>
             )}
         </div>
     )
