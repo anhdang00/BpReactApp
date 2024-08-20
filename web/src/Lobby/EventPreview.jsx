@@ -12,7 +12,11 @@ function RectPreview({ event }) {
   }
   return (
     <div className="preview" onClick={onJoinEvent}>
-      <div style={{ background: 'green', opacity: 0.9, color: 'white', borderRadius: '4px' }}>
+      <div style={{ 
+        background: 'green', 
+        opacity: 0.9, 
+        color: 'white', 
+        borderRadius: '4px' }}>
         {event.type}
       </div>
       {event.players.map(player => (

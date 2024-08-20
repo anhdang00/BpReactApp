@@ -41,8 +41,21 @@ const AuthProvider = ({ children }) => {
               setUsername(username)
             }}
           >
-            <input type="text" name="username" style={{ display: 'block' }}></input>
-            <button type="submit">Submit</button>
+            <input type="text" name="username" 
+            style={{  display: 'block', 
+                      marginBottom: '40px', 
+                      marginTop:'15px', 
+                      padding:'3%',
+                      color:'#ffdbc1',
+                      backgroundColor:'#db9769',
+                      border:'0',
+                      fontSize:'18px'}}></input>
+            <button type="submit"
+              style={{
+                borderRadius:'18px',
+                fontSize:'18px',
+                backgroundColor:'#db9769',
+              }}>Submit</button>
           </form>
         </div>
       )}
