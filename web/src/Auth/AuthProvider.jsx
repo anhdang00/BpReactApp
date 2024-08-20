@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
               setUsername(username)
             }}
           >
-            <input type="text" name="username"></input>
+            <input type="text" name="username" style={{ display: 'block' }}></input>
             <button type="submit">Submit</button>
           </form>
         </>

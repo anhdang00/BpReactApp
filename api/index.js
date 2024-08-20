@@ -76,20 +76,13 @@ io.on('connection', socket => {
     //support the owner player join into the room
     const eventId = event.id
     socket.join(eventId)
-    // io.to(eventId).emit(EVENT_SUBSCRIBE, event)
 
-    //telling the all connected web clients to receive events
-    //ensure client side receives the signal
     socket.broadcast.emit(CLIENT_EVENT_LIST_EVENTS, events)
     if (event.type === 'Tic-Tac-Toe') webRedirectCallBack(event.id)
   })
 
   socket.on(EVENT_PLAYER_JOIN, ({ userName, eventId }, callback) => {
     const event = events.find(event => event.id === eventId)
-    //validations
-    // if(!event){
-    //   callback(false)
-    // }
 
     //add the user to join an event
     event.players.push(userName)
@@ -108,6 +101,11 @@ io.on('connection', socket => {
     const event = events.find(event => event.id === eventId)
     let userName
     switch (type) {
+      case 'gameEnd':
+        event.stage = GAME_STAGE.END
+        event.winner = metadata.winner
+        break
+        
       case 'gameMove':
         const nextGameState = metadata.gameState
         event.history = nextGameState
