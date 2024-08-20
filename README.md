@@ -1,0 +1,1 @@
+A React program for 2024 August Build Project - Build a Lobby System. Hosted by Open Avenues Foundation. During the project, students learn to build a lobby system using HTML, CSS, and JavaScript. This program allow users to view, create, and joind different events. This app only focuses on the Tic Tac Toe game. 
