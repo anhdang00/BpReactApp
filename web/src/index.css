@@ -30,10 +30,12 @@ body {
   min-height: 100vh;
   height: 100vh;
 }
+
 #root{
   height: 100%;
   width: 100%;
 }
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -73,10 +75,9 @@ button:focus-visible {
 
 .root-container > nav{
   height: 50px;
-  background-color: rgb(248, 68, 110);
+  background-color: rgba(255, 0, 0, 0.7);
   color: white;
+  text-align: center;
   font-size: 30px;
   line-height: 30px;
-  text-align: center;
 }
-

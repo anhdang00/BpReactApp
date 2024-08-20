@@ -1,7 +1,6 @@
 *{
-  --cellSize:200px;
+  --cellSize:5rem;
 }
-
 
 .logo {
   height: 6em;
@@ -47,9 +46,4 @@
   margin:-1px;
   line-height:var(--cellSize) ;
   font-size: var(--cellSize);
-  text-align: center;
-}
-
-.game-container > h1, .game-container > h3{
-  text-align: center;
 }
