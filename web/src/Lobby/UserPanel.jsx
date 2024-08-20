@@ -3,7 +3,7 @@ import useAuth from '../Auth/useAuth'
 export default function UserPanel({ createEvent, setEventType }) {
   const username = useAuth()
   return (
-    <div style={{ padding: '4px' }}>
+    <div style={{ padding: '1%' }}>
       <h1>User Info</h1>
       <h1 style={{ fontSize: '2rem' }}>{username}</h1>
       <div
@@ -23,7 +23,7 @@ export default function UserPanel({ createEvent, setEventType }) {
           <option>Event 1</option>
           <option>Event 2</option>
         </select>
-        <button onClick={createEvent}>Create</button>
+        <button id='createButton' onClick={createEvent}>Create</button>
       </div>
       <div>
         <h3>Friend List</h3>

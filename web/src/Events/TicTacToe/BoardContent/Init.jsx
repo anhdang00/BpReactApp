@@ -7,9 +7,8 @@ export default function Init({ gameMetadata, userName, eventId, onPlayerReady })
             <div key={player}>
               <h1
                 style={{
-                  background: ['red', 'green'][idx % 2],
-                  opacity: 0.9,
-                  borderRadius: '2rem',
+                  background: ['#EFBF9D', '#A6B5BF'][idx % 2],
+                  borderRadius: '1rem',
                   padding: '1rem',
                   color: 'white',
                 }}
@@ -24,10 +23,7 @@ export default function Init({ gameMetadata, userName, eventId, onPlayerReady })
         </div>
         {!gameMetadata.playerReady.includes(userName) && eventId && (
           <div>
-            <button
-              style={{ fontSize: '1.5rem', background: 'blue', opacity: 0.5, color: 'white' }}
-              onClick={onPlayerReady}
-            >
+            <button id="readyButton" onClick={onPlayerReady}>
               Ready
             </button>
           </div>
