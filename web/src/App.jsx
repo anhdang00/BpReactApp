@@ -5,7 +5,7 @@ export default function App() {
   const username = useAuth()
   return (
     <div className="root-container">
-      <nav>Welcome!! {username}</nav>
+      <nav>Hello, {username}!</nav>
       <Outlet />
     </div>
   )

@@ -20,8 +20,8 @@ export default function UserPanel({ createEvent, setEventType }) {
           }}
         >
           <option value={'Tic-Tac-Toe'}>Tic-Tac-Toe</option>
-          <option>Other Event 1</option>
-          <option>Other Event 2</option>
+          <option>Event 1</option>
+          <option>Event 2</option>
         </select>
         <button onClick={createEvent}>Create</button>
       </div>

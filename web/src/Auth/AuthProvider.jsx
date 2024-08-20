@@ -22,7 +22,16 @@ const AuthProvider = ({ children }) => {
     <AuthContext.Provider value={username}>
       {/* If username is invalid */}
       {!username && (
-        <>
+        <div
+          style={{
+            textAlign: 'center',
+            display: 'flex',
+            flexFlow: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 'inherit',
+          }}
+        >
           <h1>Login Page</h1>
           <form
             onSubmit={e => {
@@ -35,7 +44,7 @@ const AuthProvider = ({ children }) => {
             <input type="text" name="username" style={{ display: 'block' }}></input>
             <button type="submit">Submit</button>
           </form>
-        </>
+        </div>
       )}
       {/* else:... */}
       {username && children}

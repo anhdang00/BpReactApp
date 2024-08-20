@@ -1,10 +1,10 @@
-import { useEffect, useMemo, useState, useCallback } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import './styles.css'
 import { TIC_TAC_TOE } from './constants'
-import calculateWinner from './utils'
 import Board from './Board'
+import calculateWinner from './utils'
 import { socket } from '../../main'
-import { EVENT_SUBSCRIBE } from '../../constants/socket'
+import { EVENT_SUBSCRIBE, EVENT_UPDATE_EVENT } from '../../constants/socket'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { GAME_STAGE } from '../../constants/game'
 import useAuth from '../../Auth/useAuth'
@@ -14,11 +14,11 @@ import StartAndEnd from './BoardContent/StartAndEnd'
 function Game() {
   const navigate = useNavigate()
   const userName = useAuth()
-  const  location = useLocation()
-  const [gameMetadata, setGameMeta] = useState(9)
+  const location = useLocation()
+  const [gameMetadata, setGameMeta] = useState({})
   const [boardState, setBoardState] = useState(TIC_TAC_TOE)
-  const [isXNext,  setIsXNext]=useState(true)
-  const eventId = useMemo(() => location.pathname.slice(1), [location.pathname])
+  const [isXNext, setIsXNext] = useState(true)
+  const eventId = useMemo(() => location.pathname.slice(1), [location.pathname]) // strip off the first character '/'
 
   useEffect(() => {
     try {
@@ -37,7 +37,6 @@ function Game() {
     }
   }, [location.pathname, eventId, navigate])
 
-  // subscriber function
   useEffect(() => {
     const eventSubscriber = data => {
       //data = event [from API web socket]
@@ -56,7 +55,6 @@ function Game() {
     const xRows = [],
       oRows = []
     boardState.map((row, i) => {
-      //i: 0,1,2
       row.map((cell, j) => {
         //j:0,1,2
         if (cell === 'X') {
@@ -66,19 +64,18 @@ function Game() {
         }
       })
     })
-    //in order to use calculateWinner function, so we convert to React tutorial example data structure
-    //one dimensional array
+
     const dataset = new Array(9).fill(null).map((_, idx) => {
-      //Array.includes : can help detect whether an element is inside of array, this only works when array and element are prime type (exception applied)
+      //Array.includes :detect whether an element is inside of array, this only works when array and element are prime type
       if (xRows.includes(idx)) {
         return 'X'
       } else if (oRows.includes(idx)) {
         return 'O'
       }
     })
-    //above should give us the correct one to apply for below function
     return calculateWinner(dataset)
   }, [boardState])
+
   useEffect(() => {
     if (displayWinner) {
       socket.emit(EVENT_UPDATE_EVENT, { eventId, type: 'gameEnd' }, { winner: displayWinner })
@@ -89,7 +86,7 @@ function Game() {
     socket.emit(EVENT_UPDATE_EVENT, { eventId, type: 'playerReady' }, { userName })
   }, [eventId, userName])
 
-  /** where we handles player leaves */
+  //handle event when user leaves
   useEffect(() => {
     const beforeUnloadListener = () => {
       if (eventId) {
@@ -124,7 +121,6 @@ function Game() {
     [boardState, eventId, isXNext],
   )
   const disablePlayerMove = useMemo(() => {
-    //if gamemetadata is not avaiable, return true
     if (!gameMetadata.symbolMap) return true
 
     const playerSymbol = gameMetadata.symbolMap[userName]
@@ -167,8 +163,6 @@ function Game() {
       {boardComponent}
     </div>
   )
-    
 }
 
 export default Game
-

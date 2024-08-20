@@ -4,7 +4,6 @@
     gap: 12px;
     height: 100%;
 }
-
 .lobby-main{
     flex: 1 1 auto;
     display: flex;
@@ -12,7 +11,7 @@
     padding: 4px;
 }
 .lobby-main > div{
-    border: 1px dashed palevioletred;
+    border: 1px dashed red;
     margin: -1px;
 }
 
@@ -42,8 +41,7 @@
     padding: 1rem;
     font-size: 2rem;
 }
-
 .preview:hover{
-    transform:scale(1.05);
-    border:2px solid palevioletred;
+    transform:scale(1.01);
+    border:2px solid yellow;
 }

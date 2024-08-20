@@ -5,7 +5,8 @@ const { GAME_STAGE } = require('./enum')
 const { TIC_TAC_TOE } = require('./game')
 const cors = require('cors')
 const app = express()
-//get us set up bypass for CORS
+
+//set up bypass for CORS
 app.use(cors())
 
 const expressServer = createServer(app)
@@ -15,8 +16,8 @@ const io = new Server(expressServer, {
 })
 
 app.get('/', (request, response) => {
-  const params = request.params // id=1231232131
-  const query = request.query.id //abc
+  const params = request.params 
+  const query = request.query.id 
   response.send('<h1>hello</h1>')
 })
 app.get('/status', (request, response) => {
@@ -28,7 +29,7 @@ app.get('/users', (request, response) => {
 app.get('/events/:id', (request, response) => {
   const eventId = request.params.id
   const event = events.find(event => event.id === eventId)
-  return response.json(event)
+  return response.json(event || null)
 })
 //3000 is the port number
 expressServer.listen(3000, () => {
@@ -56,6 +57,7 @@ io.on('connection', socket => {
   })
 
   socket.on(SERVER_EVENT_LIST_EVENTS, () => {
+
     //this variable doesn't have to be the same as above
     socket.emit(CLIENT_EVENT_LIST_EVENTS, events)
   })
@@ -63,7 +65,7 @@ io.on('connection', socket => {
   socket.on(EVENT_CREATE_EVENT, (payload, webRedirectCallBack) => {
     const { userName, eventType } = payload
     const event = {
-      id: `${userName}_${new Date().getTime()}_event`,
+      id: `${eventType}_${new Date().getTime()}`,
       players: [userName],
       type: eventType,
       stage: GAME_STAGE.INIT,
@@ -73,47 +75,50 @@ io.on('connection', socket => {
       symbolMap: {},
     }
     events.push(event)
-    //support the owner player join into the room
+    
     const eventId = event.id
     socket.join(eventId)
 
+    //telling the all connected web clients to receive events
     socket.broadcast.emit(CLIENT_EVENT_LIST_EVENTS, events)
     if (event.type === 'Tic-Tac-Toe') webRedirectCallBack(event.id)
   })
 
   socket.on(EVENT_PLAYER_JOIN, ({ userName, eventId }, callback) => {
     const event = events.find(event => event.id === eventId)
-
-    //add the user to join an event
+    //add user to join an event
     event.players.push(userName)
-    //uniq the players list to avoid duplicate userIds
+
+    //unite the players list to avoid duplicate userIds
     event.players = Array.from(new Set(event.players))
     userMap[userName] = {}
 
     //support the guest player join into the room
     socket.join(eventId)
-    //end of the logic
     io.to(eventId).emit(EVENT_SUBSCRIBE, event)
     socket.broadcast.emit(CLIENT_EVENT_LIST_EVENTS, events)
   })
 
   socket.on(EVENT_UPDATE_EVENT, ({ eventId, type }, metadata) => {
+    console.log({ eventId, type }, metadata)
     const event = events.find(event => event.id === eventId)
+
     let userName
     switch (type) {
       case 'gameEnd':
         event.stage = GAME_STAGE.END
         event.winner = metadata.winner
         break
-        
       case 'gameMove':
         const nextGameState = metadata.gameState
-        event.history = nextGameState
+        event.history.push(nextGameState)
         event.currentMove = event.history.length - 1
         break
       case 'playerReady':
         userName = metadata.userName
         event.playerReady.push(userName)
+
+        //start the game when two players are ready
         if (event.playerReady.length === 2) {
           event.stage = GAME_STAGE.START
           const _rand = Math.random() < 0.5
@@ -127,7 +132,7 @@ io.on('connection', socket => {
         userName = metadata.userName
         const isOwner = event.players.indexOf(userName) === 0
         event.players = event.players.filter(player => player !== userName)
-        //if the player is owner, delete the event and broadcast the signals to let all users know
+        //if the player is owner, delete the event
         if (isOwner) {
           const idx = events.findIndex(event => event.id === eventId)
           events.splice(idx, 1)

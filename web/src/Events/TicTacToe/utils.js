@@ -1,6 +1,6 @@
-
-
+//copy from React tutorial
 export default function calculateWinner(squares) {
+  //array contains winning position
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -13,6 +13,7 @@ export default function calculateWinner(squares) {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
+      //compare the cells on gameboard with winning positions
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }

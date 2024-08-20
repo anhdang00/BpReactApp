@@ -1,7 +1,6 @@
 *{
-  --cellSize:200px;
+  --cellSize:5rem;
 }
-
 
 .logo {
   height: 6em;
