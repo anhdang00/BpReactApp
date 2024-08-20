@@ -158,7 +158,7 @@ function Game() {
     userName,
   ])
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: 'center', color:'#CB764C' }}>
       <h1>Tic Tac Toe</h1>
       {boardComponent}
     </div>
