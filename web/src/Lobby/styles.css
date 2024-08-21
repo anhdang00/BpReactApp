@@ -34,8 +34,8 @@
     padding: 1%
 }
 .preview{
-    width: calc(var(--cellSize)* 1.5);
-    height: calc(var(--cellSize)* 1.5);
+    width: var(--cellSize);
+    height: var(--cellSize);
     border: 1px solid;
     margin: 2px;
     transition: .5s ease;
