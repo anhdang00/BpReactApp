@@ -30,7 +30,6 @@ export default function UserPanel({ createEvent, setEventType }) {
         <div
           style={{
             height: '200px',
-            border: '1px solid',
             backgroundColor:'#83884ec7',
           }}
         ></div>
